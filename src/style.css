@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer base {
+  :root { font-family: 'Red Hat Display', sans-serif; color: #211d1b; background: #fff; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body { margin: 0; min-width: 320px; }
+  button, input { font: inherit; }
+  button, a { -webkit-tap-highlight-color: transparent; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; }
+  img { display: block; max-width: 100%; }
+  @media (max-width: 600px) { html { scroll-padding-top: 72px; } }
+}
+
+@layer utilities {
+  .hero-arch::before { content: ''; position: absolute; width: min(320px, 75%); aspect-ratio: 1; border: 1px solid #e9dfd7; border-radius: 9999px; top: 22px; left: 50%; transform: translateX(-50%); opacity: .8; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideIn { from { transform: translateX(25px); opacity: .7; } to { transform: translateX(0); opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+}
